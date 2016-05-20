@@ -1,6 +1,6 @@
 UNIQUE_ID = [*('A'..'Z')].sample(8).join
 VAGRANT_TOKEN = ""
-NODES = 2
+NODES = 3
 
 Vagrant.configure(2) do |config|
   (1..NODES).each do |i|

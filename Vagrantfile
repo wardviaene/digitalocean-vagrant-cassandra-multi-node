@@ -9,6 +9,7 @@ Vagrant.configure(2) do |config|
       node.vm.provision "shell", path: "scripts/provision_cassandra.sh", args: "#{UNIQUE_ID}"
     
       node.vm.provider :digital_ocean do |provider, override|
+        override.nfs.functional = false
         override.ssh.private_key_path = 'id_rsa'
         override.vm.box = 'digital_ocean'
         override.vm.box_url = "https://github.com/devopsgroup-io/vagrant-digitalocean/raw/master/box/digital_ocean.box"

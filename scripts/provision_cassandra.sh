@@ -26,10 +26,10 @@ apt-get install -y oracle-java8-installer
 echo "Downloading Cassandra"
 mkdir -p /opt
 cd /opt
-wget -q http://www-us.apache.org/dist/cassandra/3.0.14/apache-cassandra-3.0.14-bin.tar.gz
+wget -q http://www-us.apache.org/dist/cassandra/3.0.16/apache-cassandra-3.0.16-bin.tar.gz
 echo "Extracting Cassandra"
-tar -xzf apache-cassandra-3.0.14-bin.tar.gz
-cd apache-cassandra-3.0.14
+tar -xzf apache-cassandra-3.0.16-bin.tar.gz
+cd apache-cassandra-3.0.16
 
 echo "initial setup"
 groupadd cassandra
@@ -38,6 +38,6 @@ mkdir -p /var/log/cassandra
 chown -R cassandra /var/log/cassandra
 mkdir -p /var/lib/cassandra
 chown -R cassandra /var/lib/cassandra
-chown -R cassandra /opt/apache-cassandra-3.0.14
-cat /vagrant/conf/cassandra.yaml | sed "s/CLUSTER_NAME/${CLUSTER_NAME}/" | sed "s/SEED_LIST/${SEED_LIST}/" > /opt/apache-cassandra-3.0.14/conf/cassandra.yaml
-su - cassandra -c '/opt/apache-cassandra-3.0.14/bin/cassandra'
+chown -R cassandra /opt/apache-cassandra-3.0.16
+cat /vagrant/conf/cassandra.yaml | sed "s/CLUSTER_NAME/${CLUSTER_NAME}/" | sed "s/SEED_LIST/${SEED_LIST}/" > /opt/apache-cassandra-3.0.16/conf/cassandra.yaml
+su - cassandra -c '/opt/apache-cassandra-3.0.16/bin/cassandra'
